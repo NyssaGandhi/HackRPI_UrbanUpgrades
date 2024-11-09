@@ -6,7 +6,9 @@ let dragStartX, dragStartY;
 
 const houseImage = new Image(50, 50);
 houseImage.src = './assets/house.png';
-houseImage.onload = draw;
+//houseImage.onload = draw;
+
+const mousePosition = { x: 0, y: 0 }
 
 let rectangles = [
   { x: 700, y: 50, width: 50, height: 50, color: 'blue', draggable: true, img: null },
@@ -45,6 +47,8 @@ canvas.addEventListener('mousedown', (e) => {
 });
 
 canvas.addEventListener('mousemove', (e) => {
+  mousePosition.x = e.clientX;
+  mousePosition.y = e.clientY;
   if (isDragging && currentRectIndex !== null) {
     const rect = canvas.getBoundingClientRect();
     const buffer = 0; // Buffer for the border
@@ -60,7 +64,7 @@ canvas.addEventListener('mousemove', (e) => {
     if (!overlapping) {
       rectangles[currentRectIndex].x = newX;
       rectangles[currentRectIndex].y = newY;
-      draw();
+      //draw();
     }
   }
 });
@@ -77,10 +81,22 @@ canvas.addEventListener('mouseout', () => {
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  // Set the properties for the square
+  const x = mousePosition.x - mousePosition.x % 50; 
+  const y = mousePosition.y - mousePosition.y % 50;  
+  const lineColor = "white";
+  const lineWidth = 3;
+  // Set the line width and color
+  ctx.lineWidth = lineWidth;
+  ctx.strokeStyle = lineColor;
+  // Draw the hollow square
+  ctx.strokeRect(x, y, 50, 50);
+
   rectangles.forEach(rect => {
     if (rect.img) {
       ctx.fillStyle = rect.color;
-      ctx.strokeRect(rect.x, rect.y, rect.width, rect.height)
+      ctx.strokeRect(rect.x, rect.y, rect.width, rect.height);
       ctx.drawImage(rect.img, rect.x, rect.y, 50, 50);
       // ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
       // ctx.drawImage(rect.img, 0, 0);
@@ -89,6 +105,8 @@ function draw() {
       ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
     }
   });
+
+  requestAnimationFrame(draw);
 }
 
 draw();
