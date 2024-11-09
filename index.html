@@ -21,8 +21,53 @@
   <!-- Page 2 (Actual Content) -->
   <div id="page2" class="page">
     <h2>Energy Breakdown</h2>
-    
+
     <canvas id="greenCanvas" width="400" height="200" style="border:1px solid #000000; background-color: green;"></canvas>
+    <script>
+      const canvas = document.getElementById('greenCanvas');
+      const ctx = canvas.getContext('2d');
+
+      let isDragging = false;
+      let dragStartX, dragStartY;
+      let rectX = 50, rectY = 50, rectWidth = 100, rectHeight = 50;
+
+      canvas.addEventListener('mousedown', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        if (x > rectX && x < rectX + rectWidth && y > rectY && y < rectY + rectHeight) {
+          isDragging = true;
+          dragStartX = x - rectX;
+          dragStartY = y - rectY;
+        }
+      });
+
+      canvas.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+          const rect = canvas.getBoundingClientRect();
+          rectX = e.clientX - rect.left - dragStartX;
+          rectY = e.clientY - rect.top - dragStartY;
+          draw();
+        }
+      });
+
+      canvas.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      canvas.addEventListener('mouseout', () => {
+        isDragging = false;
+      });
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(rectX, rectY, rectWidth, rectHeight);
+      }
+
+      draw();
+    </script>
 
     <h3>Current Percentages:</h3>
     <div class="bar-graph" id="currentBarGraph">
