@@ -6,6 +6,10 @@
     display: block;
 }
 
+body {
+    background-color: #d4edda; /* Light green background */
+}
+
 /* Container for the entire graph */
 .bar-graph {
     width: 100%; /* Full width */
