@@ -22,7 +22,13 @@
   <div id="page2" class="page">
     <h2>Energy Breakdown</h2>
 
-    <div class="bar-graph" id="barGraph">
+    <h3>Current Percentages:</h3>
+    <div class="bar-graph" id="currentBarGraph">
+        <!-- Bars will be added dynamically here -->
+    </div>
+
+    <h3>What Could Be Achieved:</h3>
+    <div class="bar-graph" id="proposedBarGraph">
         <!-- Bars will be added dynamically here -->
     </div>
 
@@ -53,7 +59,7 @@
     }
 
     // Function to add a new bar to the graph
-    function addBar(label, width, color) {
+    function addBar(barGraphID, label, width, color) {
         // Create a new bar section
         const bar = document.createElement("div");
         bar.className = "bar";
@@ -62,13 +68,19 @@
         bar.textContent = label + " (" + width + "%)";
 
         // Append the bar to the graph
-        document.getElementById("barGraph").appendChild(bar);
+        document.getElementById(barGraphID).appendChild(bar);
     }
-    addBar("Coal", 20, "orange");
-    addBar("Solar", 40, "green");
-    addBar("Hydro", 10, "blue");
-    addBar("Oil", 20, "black");
-    addBar("Nuclear", 10, "purple");
+    addBar("currentBarGraph", "Coal", 20, "orange");
+    addBar("currentBarGraph", "Solar", 40, "green");
+    addBar("currentBarGraph", "Hydro", 10, "blue");
+    addBar("currentBarGraph", "Oil", 20, "black");
+    addBar("currentBarGraph", "Nuclear", 10, "purple");
+
+    addBar("proposedBarGraph", "Coal", 10, "orange");
+    addBar("proposedBarGraph", "Solar", 45, "green");
+    addBar("proposedBarGraph", "Hydro", 20, "blue");
+    addBar("proposedBarGraph", "Oil", 15, "black");
+    addBar("proposedBarGraph", "Nuclear", 10, "purple");
   </script>
 </body>
 </html>
