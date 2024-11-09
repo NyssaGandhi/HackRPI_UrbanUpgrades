@@ -91,6 +91,9 @@ function addBars(){
   while(document.getElementById("proposedBarGraph").firstChild){
     document.getElementById("proposedBarGraph").removeChild(document.getElementById("proposedBarGraph").firstChild);
   }
+  while(document.getElementById("colorKey").firstChild){
+    document.getElementById("colorKey").removeChild(document.getElementById("colorKey").firstChild);
+  }
 
   //Get percentages from subregion data array
   //Data Indexes: Coal-124, Oil-125, etc
