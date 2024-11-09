@@ -83,7 +83,15 @@ function addSource(name, isRenewable, initialPercent, proposedPercent, color) {
 }
 
 function addBars(){
+  //Clear current bars/sources
   sources.length = 0;
+  while(document.getElementById("currentBarGraph").firstChild){
+    document.getElementById("currentBarGraph").removeChild(document.getElementById("currentBarGraph").firstChild);
+  }
+  while(document.getElementById("proposedBarGraph").firstChild){
+    document.getElementById("proposedBarGraph").removeChild(document.getElementById("proposedBarGraph").firstChild);
+  }
+
   //Get percentages from subregion data array
   //Data Indexes: Coal-124, Oil-125, etc
   let coalPercentage = dataarray[124]
