@@ -36,9 +36,12 @@ const canvas = document.getElementById('greenCanvas');
       canvas.addEventListener('mousemove', (e) => {
         if (isDragging && currentRectIndex !== null) {
           const rect = canvas.getBoundingClientRect();
-          const buffer = 5; // Buffer for the border
+          const buffer = 0; // Buffer for the border
+
           let newX = Math.max(buffer, Math.min(e.clientX - rect.left - dragStartX, canvas.width - rectangles[currentRectIndex].width - buffer));
           let newY = Math.max(buffer, Math.min(e.clientY - rect.top - dragStartY, canvas.height - rectangles[currentRectIndex].height - buffer));
+          newX = newX - newX % 50;
+          newY = newY - newY % 50;
 
           let tempRect = { ...rectangles[currentRectIndex], x: newX, y: newY };
           let overlapping = rectangles.some((rect, index) => index !== currentRectIndex && isOverlapping(tempRect, rect));
