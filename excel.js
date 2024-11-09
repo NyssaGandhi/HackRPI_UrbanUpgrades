@@ -41616,28 +41616,31 @@ let SubRegionRates = `2022,AKGD,ASCC Alaska Grid,2170.40,37437228.63,14757545.98
 2022,SRTV,SERC Tennessee Valley,57330.90,1192606768.31,563955139.97,1263138312.32,593937621.97,214916301.49,96983337.87,42334.86,17736.99,57718.20,100265691.76,17624427.33,2529587.96,100862905.71,--,0.39,0.37,0.54,933.07,0.08,0.01,938.63,--,0.07,0.06,0.10,168.15,0.01,0.00,169.15,--,0.65,0.61,0.89,1545.22,0.14,0.02,1554.43,--,1.09,35.23,0.19,0.65,0.98,35.08,0.17,0.58,1.70,3.29,0.04,0.88,2192.37,1840.45,909.76,1561.43,0.25,0.07,0.02,0.14,0.04,0.01,0.00,0.02,2209.47,1846.71,910.79,1570.62,--,--,0.10,3.15,0.03,0.07,0.09,3.15,0.02,0.06,0.16,0.29,0.01,0.10,203.34,164.31,119.77,169.41,0.02,0.01,0.00,0.01,0.00,0.00,0.00,0.00,204.92,164.87,119.91,170.41,--,--,0.72,0.65,0.97,1671.03,0.15,0.02,1681.33,--,62715587.50,238759.79,65362764.46,64960861.00,18728480.00,1401100.83,14865.00,1436949.00,0.00,56983.53,-50.00,193334906.27,21581394.83,2852914.83,129775146.10,85141155.00,29.2%,0.1%,30.4%,30.2%,8.7%,0.7%,0.0%,0.7%,0.0%,0.0%,0.0%,90.0%,10.0%,1.3%,60.4%,39.6%,38687255 ,1204 ,29803018 ,0 ,0 ,656486 ,0 ,0 ,0 ,0 ,0 ,55.9%,0.0%,43.1%,0.0%,0.0%,0.9%,0.0%,0.0%,0.0%,0.0%,0.0%
 2022,SRVC,SERC Virginia/Carolina,95391.00,1486424872.49,699629531.64,1574023352.49,740034338.64,323748775.75,145604242.75,49802.26,22777.23,25437.98,100845599.84,15231106.17,2123658.38,101313039.02,--,0.31,0.31,0.16,622.99,0.05,0.01,625.87,--,0.07,0.07,0.03,135.69,0.01,0.00,136.32,--,0.57,0.58,0.29,1152.04,0.09,0.01,1157.38,--,1.24,6.66,0.36,0.52,1.23,5.53,0.35,0.51,0.94,3.47,0.08,0.23,2144.04,1554.43,997.59,1197.59,0.24,0.24,0.03,0.07,0.03,0.03,0.00,0.01,2160.40,1570.80,999.46,1202.00,--,--,0.12,0.64,0.05,0.06,0.11,0.51,0.04,0.06,0.09,0.33,0.01,0.03,201.04,148.89,125.50,142.16,0.02,0.02,0.00,0.01,0.00,0.00,0.00,0.00,202.57,150.45,125.74,142.68,--,--,0.71,0.68,0.35,1308.84,0.10,0.01,1315.10,--,35634459.67,1077097.23,130300157.79,125211370.00,4032092.00,7289297.62,1497203.00,17934237.28,0.00,565013.75,207849.00,292995947.44,30752829.90,26720737.90,175073875.07,148674902.28,11.0%,0.3%,40.2%,38.7%,1.2%,2.3%,0.5%,5.5%,0.0%,0.2%,0.1%,90.5%,9.5%,8.3%,54.1%,45.9%,24710752 ,236136 ,69974537 ,0 ,0 ,3029124 ,0 ,0 ,0 ,0 ,0 ,25.2%,0.2%,71.4%,0.0%,0.0%,3.1%,0.0%,0.0%,0.0%,0.0%,0.0%
 `
+let dataarray;
 
-//Get zip value
-const zip = document.getElementById("zip").value;
+function getDataArray() {
+    //Get zip value
+    const zip = document.getElementById("zip").value;
 
-//Split zipCodeSubRegions into lines    
-let lines = zipCodeSubRegions.split('\n');
+    //Split zipCodeSubRegions into lines    
+    let lines = zipCodeSubRegions.split('\n');
 
-//Find index of line with matching zipcode
-let index = lines.findIndex(line => line.includes(zip));
-let subregion = lines[index].substring(6);
-subregion = subregion.replace(/,/g, "");
+    //Find index of line with matching zipcode
+    let index = lines.findIndex(line => line.includes(zip));
+    subregion = lines[index].substring(6);
+    subregion = subregion.replace(/,/g, "");
 
-console.log(subregion);
+    console.log(subregion);
 
-//Split SubRegionRates into lines
-lines = SubRegionRates.split('\n');
+    //Split SubRegionRates into lines
+    lines = SubRegionRates.split('\n');
 
-//find index of line with matching subregion
-index = lines.findIndex(line => line.includes(subregion));
-let data = lines[index].substring(10);
-console.log(data);
+    //find index of line with matching subregion
+    index = lines.findIndex(line => line.includes(subregion));
+    let data = lines[index].substring(10);
+    console.log(data);
 
-//Split data into an array of data points
-let dataarray = data.split(/,/);
-console.log(dataarray);
+    //Split data into an array of data points
+    dataarray = data.split(/,/);
+    console.log(dataarray);
+}

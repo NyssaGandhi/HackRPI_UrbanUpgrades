@@ -14,7 +14,7 @@
     <form id="myForm">
       <label for="zip">ZIP:</label>
       <input type="text" id="zip" name="zip" required><br><br>
-      <button type="submit">Submit</button>
+      <button type="submit" onclick="getDataArray(); addBars()">Submit</button>
     </form>
   </div>
 
@@ -52,7 +52,6 @@
     <p>Looking at zipcode: <span id="zipCode"></span></p>
     <button onclick="goBack()">Go Back</button>
   </div>
-
   <script src="excel.js"></script>
   <script src="pages.js"></script>
   <script src="bar.js"></script>
