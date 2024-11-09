@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HackRPI</title>
+  <style>
+    /* Basic styles to hide pages */
+    .page {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1 (Form Page) -->
+  <div id="page1" class="page active">
+    <h2>Enter a zip code:</h2>
+    <form id="myForm">
+      <label for="zip">ZIP:</label>
+      <input type="text" id="zip" name="zip" required><br><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Page 2 (Thank You Page) -->
+  <div id="page2" class="page">
+    <h2>Energy Breakdown</h2>
+    <p>Looking at zipcode: <span id="zipCode"></span></p>
+    <button onclick="goBack()">Go Back</button>
+  </div>
+
+  <script>
+    // Form submission event listener
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevents page refresh
+      
+      // Get the name input value
+      const zip = document.getElementById("zip").value;
+
+      // Display the name on Page 2
+      document.getElementById("zipCode").textContent = zip;
+
+      // Switch to Page 2
+      document.getElementById("page1").classList.remove("active");
+      document.getElementById("page2").classList.add("active");
+    });
+
+    // Function to go back to Page 1
+    function goBack() {
+      document.getElementById("page2").classList.remove("active");
+      document.getElementById("page1").classList.add("active");
+    }
+  </script>
+</body>
+</html>
