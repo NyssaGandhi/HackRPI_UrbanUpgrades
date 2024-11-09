@@ -4,23 +4,38 @@ const ctx = canvas.getContext('2d');
 let isDragging = false;
 let dragStartX, dragStartY;
 
+let cost = 0; // millions of dollars
+
 const houseImage = new Image(50, 50);
 houseImage.src = './assets/house.png';
 //houseImage.onload = draw;
 
 const mousePosition = { x: 0, y: 0 }
 
+let powerPlants = [
+  {cost: 50, rect: {x: 0, y: 0, width: 50, height: 50, color: 'orange', draggable: true, img: null, type: 'coal'}},
+  {cost: 50, rect: {x: 0, y: 0, width: 50, height: 50, color: 'red', draggable: true, img: null, type: 'oil'}},
+  {cost: 50, rect: {x: 0, y: 0, width: 50, height: 50, color: 'yellow', draggable: true, img: null, type: 'gas'}},
+  {cost: 50, rect: {x: 0, y: 0, width: 50, height: 50, color: 'purple', draggable: true, img: null, type: 'nuclear'}},
+  {cost: 50, rect: {x: 0, y: 0, width: 50, height: 50, color: 'goldenrod', draggable: true, img: null, type: 'biomass'}},
+  {cost: 50, rect: {x: 0, y: 0, width: 50, height: 50, color: 'lime', draggable: true, img: null, type: 'solar'}},
+  {cost: 50, rect: {x: 0, y: 0, width: 50, height: 50, color: 'blue', draggable: true, img: null, type: 'hydro'}},
+  {cost: 50, rect: {x: 0, y: 0, width: 50, height: 50, color: 'skyblue', draggable: true, img: null, type: 'wind'}},
+  {cost: 50, rect: {x: 0, y: 0, width: 50, height: 50, color: 'pink', draggable: true, img: null, type: 'geo'}},
+]
+
 let rectangles = [
-  { x: 700, y: 50, width: 50, height: 50, color: 'blue', draggable: true, img: null },
-  { x: 600, y: 50, width: 50, height: 50, color: 'red', draggable: true, img: null },
-  { x: 500, y: 50, width: 50, height: 50, color: 'yellow', draggable: true, img: null },
-  { x: 300, y: 50, width: 100, height: 100, color: 'orange', draggable: true, img: null },
-  { x: 300, y: 300, width: 50, height: 50, color: 'pink', draggable: false, img: houseImage },
-  { x: 500, y: 400, width: 50, height: 50, color: 'pink', draggable: false, img: houseImage },
-  { x: 100, y: 250, width: 50, height: 50, color: 'pink', draggable: false, img: houseImage },
-  { x: 600, y: 200, width: 50, height: 50, color: 'pink', draggable: false, img: houseImage },
+  { x: 300, y: 300, width: 50, height: 50, color: 'black', draggable: false, img: houseImage, type: 'house' },
+  { x: 500, y: 400, width: 50, height: 50, color: 'black', draggable: false, img: houseImage, type: 'house' },
+  { x: 100, y: 250, width: 50, height: 50, color: 'black', draggable: false, img: houseImage, type: 'house' },
+  { x: 600, y: 200, width: 50, height: 50, color: 'black', draggable: false, img: houseImage, type: 'house' },
 ];
 let currentRectIndex = null;
+
+function addPowerPlant(plant) {
+    cost += plant.cost;
+    rectangles.push(plant.rect);
+}
 
 function isOverlapping(rect1, rect2) {
   return !(rect1.x + rect1.width < rect2.x ||
