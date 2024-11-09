@@ -6,7 +6,9 @@ function addBar(barGraphID, label, width, color) {
     bar.style.width = width + "%";
     bar.style.backgroundColor = color;
     bar.energyType = label;
-    bar.textContent = label + " (" + width + "%)";
+    const text = document.createElement("span");
+    text.textContent = label + " (" + width + "%)";   
+    bar.appendChild(text); 
 
     // Append the bar to the graph
     document.getElementById(barGraphID).appendChild(bar);
@@ -119,9 +121,9 @@ function addBars(){
 
   addSource("Coal", false, coalPercentage, 10, "orange");
   addSource("Oil", false, oilPercentage, 5, "red");
-  addSource("Gas", false, gasPercentage, 20, "yellow");
+  addSource("Gas", false, gasPercentage, 20, "goldenrod");
   addSource("Nuclear", false, nuclearPercentage, 12, "purple");
-  addSource("Biomass", true, biomassPercentage, 6, "goldenrod");
+  addSource("Biomass", true, biomassPercentage, 6, "green");
   addSource("Solar", true, solarPercentage, 20, "lime");
   addSource("Hydro", true, hydroPercentage, 15, "blue");
   addSource("Wind", true, windPercentage, 10, "skyblue");
@@ -129,6 +131,7 @@ function addBars(){
 
   addSourceBars();
   addSourcesToKey();
+  addClickFunctionality();
 }
 
 function addSourceBars() {
@@ -144,15 +147,15 @@ function addSourcesToKey() {
     });
 }
 
-
-
-// Select all elements of the specified type
-const bars = document.querySelectorAll(".bar"); 
-
-// Add the click event listener to each element
-bars.forEach(bar => {
-  bar.addEventListener('click', function() {
-    // Your code to execute on click
-    showInfo(bar.energyType);
-  });
-});
+function addClickFunctionality() {
+    // Select all elements of the specified type
+    const bars = document.querySelectorAll(".bar"); 
+    
+    // Add the click event listener to each element
+    bars.forEach(bar => {
+      bar.addEventListener('click', function() {
+        // Your code to execute on click
+        showInfo(bar.energyType);
+      });
+    });
+}

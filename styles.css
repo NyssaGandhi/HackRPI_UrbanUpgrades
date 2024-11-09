@@ -26,12 +26,23 @@ body {
     margin: 5px 0; /* Space between bars */
     display: flex;
     align-items: center;
-    color: #fff;
     font-size: 14px;
     padding-left: 10px;
     box-sizing: border-box;
-
     cursor: pointer;
+}
+
+.bar span {
+    visibility: hidden;
+    white-space: nowrap;
+}
+
+.bar:hover {
+    filter: brightness(1.2);
+}
+
+.bar:hover span {
+    visibility: visible;
 }
 
 /* Style for the info box */
