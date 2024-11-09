@@ -36,51 +36,7 @@
     <button onclick="goBack()">Go Back</button>
   </div>
 
-  <script>
-    // Form submission event listener
-    document.getElementById("myForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevents page refresh
-      
-      // Get the name input value
-      const zip = document.getElementById("zip").value;
-
-      // Display the name on Page 2
-      document.getElementById("zipCode").textContent = zip;
-
-      // Switch to Page 2
-      document.getElementById("page1").classList.remove("active");
-      document.getElementById("page2").classList.add("active");
-    });
-
-    // Function to go back to Page 1
-    function goBack() {
-      document.getElementById("page2").classList.remove("active");
-      document.getElementById("page1").classList.add("active");
-    }
-
-    // Function to add a new bar to the graph
-    function addBar(barGraphID, label, width, color) {
-        // Create a new bar section
-        const bar = document.createElement("div");
-        bar.className = "bar";
-        bar.style.width = width + "%";
-        bar.style.backgroundColor = color;
-        bar.textContent = label + " (" + width + "%)";
-
-        // Append the bar to the graph
-        document.getElementById(barGraphID).appendChild(bar);
-    }
-    addBar("currentBarGraph", "Coal", 20, "orange");
-    addBar("currentBarGraph", "Solar", 40, "green");
-    addBar("currentBarGraph", "Hydro", 10, "blue");
-    addBar("currentBarGraph", "Oil", 20, "black");
-    addBar("currentBarGraph", "Nuclear", 10, "purple");
-
-    addBar("proposedBarGraph", "Coal", 10, "orange");
-    addBar("proposedBarGraph", "Solar", 45, "green");
-    addBar("proposedBarGraph", "Hydro", 20, "blue");
-    addBar("proposedBarGraph", "Oil", 15, "black");
-    addBar("proposedBarGraph", "Nuclear", 10, "purple");
-  </script>
+  <script src="pages.js"></script>
+  <script src="bar.js"></script>
 </body>
 </html>
