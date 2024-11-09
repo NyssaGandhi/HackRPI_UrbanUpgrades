@@ -39,3 +39,27 @@
     font-size: 18px;
     min-height: 50px;
 }
+
+/* Style for the main container to create a split screen */
+.split-screen {
+    display: flex;
+    height: 60vh; /* Full viewport height */
+}
+
+/* Style for the left panel */
+.left-panel {
+    flex: 1;
+    background-color: #f0f8ff;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+/* Style for the right panel */
+.right-panel {
+    flex: 1;
+    background-color: #ffebcd;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
