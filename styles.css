@@ -87,7 +87,7 @@ body {
 /* Style for the left panel */
 .left-panel {
     flex: 3;
-    background-color: #f0f8ff;
+    background-color: #cadbe9;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
@@ -96,7 +96,7 @@ body {
 /* Style for the right panel */
 .right-panel {
     flex: 2;
-    background-color: #ffebcd;
+    background-color: #b5c4d0;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
