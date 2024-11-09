@@ -4,15 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HackRPI</title>
-  <style>
-    /* Basic styles to hide pages */
-    .page {
-      display: none;
-    }
-    .active {
-      display: block;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -26,9 +18,14 @@
     </form>
   </div>
 
-  <!-- Page 2 (Thank You Page) -->
+  <!-- Page 2 (Actual Content) -->
   <div id="page2" class="page">
     <h2>Energy Breakdown</h2>
+
+    <div class="bar-graph" id="barGraph">
+        <!-- Bars will be added dynamically here -->
+    </div>
+
     <p>Looking at zipcode: <span id="zipCode"></span></p>
     <button onclick="goBack()">Go Back</button>
   </div>
@@ -54,6 +51,24 @@
       document.getElementById("page2").classList.remove("active");
       document.getElementById("page1").classList.add("active");
     }
+
+    // Function to add a new bar to the graph
+    function addBar(label, width, color) {
+        // Create a new bar section
+        const bar = document.createElement("div");
+        bar.className = "bar";
+        bar.style.width = width + "%";
+        bar.style.backgroundColor = color;
+        bar.textContent = label + " (" + width + "%)";
+
+        // Append the bar to the graph
+        document.getElementById("barGraph").appendChild(bar);
+    }
+    addBar("Coal", 20, "orange");
+    addBar("Solar", 40, "green");
+    addBar("Hydro", 10, "blue");
+    addBar("Oil", 20, "black");
+    addBar("Nuclear", 10, "purple");
   </script>
 </body>
 </html>

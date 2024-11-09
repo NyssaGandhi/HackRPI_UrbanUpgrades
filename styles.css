@@ -1,0 +1,29 @@
+/* Basic styles to hide pages */
+.page {
+    display: none;
+}
+.active {
+    display: block;
+}
+
+/* Container for the entire graph */
+.bar-graph {
+    width: 100%; /* Full width */
+    max-width: 600px; /* Optional max width */
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: flex;
+}
+
+/* Style for individual bar sections */
+.bar {
+    height: 60px; /* Height of each bar */
+    margin: 5px 0; /* Space between bars */
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
