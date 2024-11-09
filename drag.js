@@ -14,9 +14,9 @@ let rectangles = [
   { x: 500, y: 50, width: 50, height: 50, color: 'yellow', draggable: true, img: null },
   { x: 300, y: 50, width: 100, height: 100, color: 'orange', draggable: true, img: null },
   { x: 300, y: 300, width: 50, height: 50, color: 'pink', draggable: false, img: houseImage },
-  { x: 500, y: 300, width: 50, height: 50, color: 'pink', draggable: false, img: houseImage },
-  { x: 100, y: 300, width: 50, height: 50, color: 'pink', draggable: false, img: houseImage },
-  { x: 200, y: 200, width: 50, height: 50, color: 'pink', draggable: false, img: houseImage },
+  { x: 500, y: 400, width: 50, height: 50, color: 'pink', draggable: false, img: houseImage },
+  { x: 100, y: 250, width: 50, height: 50, color: 'pink', draggable: false, img: houseImage },
+  { x: 600, y: 200, width: 50, height: 50, color: 'pink', draggable: false, img: houseImage },
 ];
 let currentRectIndex = null;
 
