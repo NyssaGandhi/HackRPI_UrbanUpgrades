@@ -22,14 +22,14 @@
   <div id="page2" class="page">
     <h2>Energy Breakdown</h2>
 
-    <canvas id="greenCanvas" width="400" height="200" style="border:1px solid #000000; background-color: green;"></canvas>
+    <canvas id="greenCanvas" width="800" height="500" style="border:1px solid #000000; background-color: green;"></canvas>
     <script>
       const canvas = document.getElementById('greenCanvas');
       const ctx = canvas.getContext('2d');
 
       let isDragging = false;
       let dragStartX, dragStartY;
-      let rectX = 50, rectY = 50, rectWidth = 100, rectHeight = 50;
+      let rectX = 700, rectY = 50, rectWidth = 50, rectHeight = 50;
 
       canvas.addEventListener('mousedown', (e) => {
         const rect = canvas.getBoundingClientRect();
@@ -46,8 +46,9 @@
       canvas.addEventListener('mousemove', (e) => {
         if (isDragging) {
           const rect = canvas.getBoundingClientRect();
-          rectX = e.clientX - rect.left - dragStartX;
-          rectY = e.clientY - rect.top - dragStartY;
+          const buffer = 5; // Buffer for the border
+          rectX = Math.max(buffer, Math.min(e.clientX - rect.left - dragStartX, canvas.width - rectWidth - buffer));
+          rectY = Math.max(buffer, Math.min(e.clientY - rect.top - dragStartY, canvas.height - rectHeight - buffer));
           draw();
         }
       });
