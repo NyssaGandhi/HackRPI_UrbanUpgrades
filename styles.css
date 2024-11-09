@@ -9,11 +9,11 @@
 /* Container for the entire graph */
 .bar-graph {
     width: 100%; /* Full width */
-    max-width: 600px; /* Optional max width */
     border: 1px solid #ccc;
     padding: 20px;
     background-color: #f9f9f9;
     display: flex;
+    box-sizing: border-box;
 }
 
 /* Style for individual bar sections */
@@ -40,6 +40,15 @@
     min-height: 50px;
 }
 
+.info-label {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 30px;
+    font-weight: bold;
+}
+
 /* Style for the main container to create a split screen */
 .split-screen {
     display: flex;
@@ -48,7 +57,7 @@
 
 /* Style for the left panel */
 .left-panel {
-    flex: 1;
+    flex: 3;
     background-color: #f0f8ff;
     padding: 20px;
     box-sizing: border-box;
@@ -57,7 +66,7 @@
 
 /* Style for the right panel */
 .right-panel {
-    flex: 1;
+    flex: 2;
     background-color: #ffebcd;
     padding: 20px;
     box-sizing: border-box;

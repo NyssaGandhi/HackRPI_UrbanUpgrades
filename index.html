@@ -24,17 +24,26 @@
 
     <canvas id="greenCanvas" width="800" height="500" style="border:3px solid #000000; background-color: green;"></canvas>
 
-    <h3>Current Percentages:</h3>
-    <div class="bar-graph" id="currentBarGraph">
-        <!-- Bars will be added dynamically here -->
-    </div>
+    <div class="split-screen">
+        <!-- Bar Graphs of left side of screen -->
+        <div class="left-panel">
+            <h3>Current Percentages:</h3>
+            <div class="bar-graph" id="currentBarGraph">
+                <!-- Bars will be added dynamically here -->
+            </div>
+        
+            <h3>What Could Be Achieved:</h3>
+            <div class="bar-graph" id="proposedBarGraph">
+                <!-- Bars will be added dynamically here -->
+            </div>
+        </div>
 
-    <h3>What Could Be Achieved:</h3>
-    <div class="bar-graph" id="proposedBarGraph">
-        <!-- Bars will be added dynamically here -->
+        <!-- Info Box on right side of screen -->
+        <div class="right-panel">
+            <div class="info-label" id="infoLabel">(Energy Source)</div>
+            <div class="info-box" id="infoBox">Click an electricity source to learn more about it!</div>
+        </div>
     </div>
-
-    <div class="info-box" id="infoBox">Click an electricity source to learn more about it!</div>
 
     <p>Looking at zipcode: <span id="zipCode"></span></p>
     <button onclick="goBack()">Go Back</button>

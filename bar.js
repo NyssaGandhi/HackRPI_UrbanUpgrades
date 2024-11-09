@@ -13,8 +13,10 @@ function addBar(barGraphID, label, width, color) {
 }
 
 function showInfo(infoType) {
-    const infoBox = document.getElementById("infoBox");
+    const infoLabel = document.getElementById("infoLabel");
+    infoLabel.textContent = "Some info about " + infoType + " energy";
 
+    const infoBox = document.getElementById("infoBox");
     // Set content based on the button clicked
     switch (infoType) {
         case 'Coal':
