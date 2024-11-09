@@ -30,9 +30,9 @@ function isOverlapping(rect1, rect2) {
 }
 
 canvas.addEventListener('mousedown', (e) => {
-  const rect = canvas.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+  // const rect = canvas.getBoundingClientRect();
+  const x = mousePosition.x;
+  const y = mousePosition.y;
 
   rectangles.forEach((rect, index) => {
     if (x > rect.x && x < rect.x + rect.width && y > rect.y && y < rect.y + rect.height) {
@@ -47,16 +47,19 @@ canvas.addEventListener('mousedown', (e) => {
 });
 
 canvas.addEventListener('mousemove', (e) => {
-  mousePosition.x = e.clientX;
-  mousePosition.y = e.clientY;
+  const rect = canvas.getBoundingClientRect();
+  if (!rect)
+    return;
+
+  mousePosition.x = e.clientX - rect.left;
+  mousePosition.y = e.clientY - rect.top;
   if (isDragging && currentRectIndex !== null) {
-    const rect = canvas.getBoundingClientRect();
     const buffer = 0; // Buffer for the border
 
-    let newX = Math.max(buffer, Math.min(e.clientX - rect.left - dragStartX, canvas.width - rectangles[currentRectIndex].width - buffer));
-    let newY = Math.max(buffer, Math.min(e.clientY - rect.top - dragStartY, canvas.height - rectangles[currentRectIndex].height - buffer));
-    newX = newX - newX % 50;
-    newY = newY - newY % 50;
+    let newX = Math.max(buffer, Math.min(mousePosition.x - dragStartX, canvas.width - rectangles[currentRectIndex].width - buffer));
+    let newY = Math.max(buffer, Math.min(mousePosition.y - dragStartY, canvas.height - rectangles[currentRectIndex].height - buffer));
+    newX = (newX + 25) - (newX + 25) % 50;
+    newY = (newY + 25) - (newY + 25) % 50;
 
     let tempRect = { ...rectangles[currentRectIndex], x: newX, y: newY };
     let overlapping = rectangles.some((rect, index) => index !== currentRectIndex && isOverlapping(tempRect, rect));
@@ -83,8 +86,8 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
   // Set the properties for the square
-  const x = mousePosition.x - mousePosition.x % 50; 
-  const y = mousePosition.y - mousePosition.y % 50;  
+  const x = (mousePosition.x) - (mousePosition.x) % 50; 
+  const y = (mousePosition.y) - (mousePosition.y) % 50;  
   const lineColor = "white";
   const lineWidth = 3;
   // Set the line width and color
