@@ -26,5 +26,16 @@
     font-size: 14px;
     padding-left: 10px;
     box-sizing: border-box;
+
     cursor: pointer;
+}
+
+/* Style for the info box */
+.info-box {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 18px;
+    min-height: 50px;
 }
