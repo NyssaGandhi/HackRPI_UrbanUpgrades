@@ -49,6 +49,31 @@
     font-weight: bold;
 }
 
+/* Container for the color key */
+.color-key {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Style for each key item */
+.key-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+/* Style for the color box */
+.color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
 /* Style for the main container to create a split screen */
 .split-screen {
     display: flex;

@@ -34,22 +34,79 @@ function showInfo(infoType) {
         case 'Nuclear':
             infoBox.textContent = "Nuclear is pretty good but makes yucky nuclear waste";
             break;
+        case 'Gas':
+            infoBox.textContent = "Another type of fossil fuel commonly used that produces few emissions than coal, oil, etc.";
+            break;
+        case 'Wind':
+            infoBox.textContent = "Another renewable energy";
+            break;
+        case 'Biomass':
+            infoBox.textContent = "Burning biological material for energy";
+            break;
+        case 'Geothermal':
+            infoBox.textContent = "A renewable energy that harnesses the power of the earth's heat.";
+            break;
       default:
         infoBox.textContent = "Click on an energy source to learn more!";
     }
-  }
+}
 
-addBar("currentBarGraph", "Coal", 20, "orange");
-addBar("currentBarGraph", "Solar", 40, "green");
-addBar("currentBarGraph", "Hydro", 10, "blue");
-addBar("currentBarGraph", "Oil", 20, "black");
-addBar("currentBarGraph", "Nuclear", 10, "purple");
+function addKeyEntry(label, color) {
+    const keyItem = document.createElement("div");
+    keyItem.className = "key-item";
 
-addBar("proposedBarGraph", "Coal", 10, "orange");
-addBar("proposedBarGraph", "Solar", 45, "green");
-addBar("proposedBarGraph", "Hydro", 20, "blue");
-addBar("proposedBarGraph", "Oil", 15, "black");
-addBar("proposedBarGraph", "Nuclear", 10, "purple");
+    const colorBox = document.createElement("div");
+    colorBox.className = "color-box";
+
+    colorBox.style = `background-color: ${color}`;
+    const labelBox = document.createElement("span");
+    labelBox.textContent = label;
+
+    keyItem.appendChild(colorBox);
+    keyItem.appendChild(labelBox)
+    document.getElementById("colorKey").appendChild(keyItem);
+}
+
+//to be parsed somehow
+let sourceNames = ["Coal", "Oil", "Gas", "Nuclear", "Biomass", "Solar", "Hydro", "Wind", "Geothermal"];
+
+const sources = [];
+
+function addSource(name, isRenewable, initialPercent, proposedPercent, color) {
+    sources.push( {
+        name: name,
+        isRenewable: isRenewable,
+        initialPercent: initialPercent,
+        proposedPercent: proposedPercent,
+        color: color
+    } )
+}
+
+addSource("Coal", false, 15, 10, "orange");
+addSource("Oil", false, 10, 5, "red");
+addSource("Gas", false, 30, 20, "yellow");
+addSource("Nuclear", false, 6, 12, "purple");
+addSource("Biomass", true, 4, 6, "goldenrod");
+addSource("Solar", true, 15, 20, "lime");
+addSource("Hydro", true, 10, 15, "blue");
+addSource("Wind", true, 8, 10, "skyblue");
+addSource("Geothermal", true, 2, 2, "pink");
+
+function addSourceBars() {
+    sources.forEach(source => {
+        addBar("currentBarGraph", source.name, source.initialPercent, source.color);
+        addBar("proposedBarGraph", source.name, source.proposedPercent, source.color);
+    });
+}
+
+function addSourcesToKey() {
+    sources.forEach(source => {
+        addKeyEntry(source.name, source.color);
+    });
+}
+
+addSourceBars();
+addSourcesToKey();
 
 // Select all elements of the specified type
 const bars = document.querySelectorAll(".bar"); 
