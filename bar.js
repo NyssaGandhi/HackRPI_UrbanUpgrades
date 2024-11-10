@@ -87,7 +87,8 @@ function addKeyEntry(label, color) {
 }
 
 //to be parsed somehow
-let sourceNames = ["Coal", "Oil", "Gas", "Nuclear", "Biomass", "Solar", "Hydro", "Wind", "Geothermal"];
+const sourceNames = ["Coal", "Oil", "Gas", "Nuclear", "Biomass", "Solar", "Hydro", "Wind", "Geothermal"];
+const colors = ["#FF8C8C", "#FFB07A", "#F9F38A", "#A8F5A0", "#7EC6D1", "#7A98E5", "#9A92E5", "#FF9BCC", "#FF8C9A"];
 
 const sources = [];
 
@@ -136,15 +137,15 @@ function addBars(){
   geothermalPercentage = geothermalPercentage.substring(0, (geothermalPercentage.length - 1));
 
 
-  addSource("Coal", false, coalPercentage, 10, "darkorange");
-  addSource("Oil", false, oilPercentage, 5, "red");
-  addSource("Gas", false, gasPercentage, 20, "goldenrod");
-  addSource("Nuclear", false, nuclearPercentage, 12, "purple");
-  addSource("Biomass", true, biomassPercentage, 6, "green");
-  addSource("Solar", true, solarPercentage, 20, "lime");
-  addSource("Hydro", true, hydroPercentage, 15, "blue");
-  addSource("Wind", true, windPercentage, 10, "skyblue");
-  addSource("Geothermal", true, geothermalPercentage, 2, "pink");
+  addSource("Coal", false, coalPercentage, 10, colors[0]);
+  addSource("Oil", false, oilPercentage, 5, colors[1]);
+  addSource("Gas", false, gasPercentage, 20, colors[2]);
+  addSource("Nuclear", false, nuclearPercentage, 12, colors[3]);
+  addSource("Biomass", true, biomassPercentage, 6, colors[4]);
+  addSource("Solar", true, solarPercentage, 20, colors[5]);
+  addSource("Hydro", true, hydroPercentage, 15, colors[6]);
+  addSource("Wind", true, windPercentage, 10, colors[7]);
+  addSource("Geothermal", true, geothermalPercentage, 2, colors[8]);
 
   addSourceBars();
   addSourcesToKey();
