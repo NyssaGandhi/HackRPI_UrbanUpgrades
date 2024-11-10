@@ -62,9 +62,12 @@ function addKeyEntry(label, color) {
     colorBox.style = `background-color: ${color}`;
 
     const labelBox = document.createElement("span");
+    labelBox.className = "key-label";
     labelBox.textContent = label;
 
     const addButton = document.createElement("button");
+    addButton.className = "add-button";
+    addButton.textContent = "Add";
     switch (label) {
         case "Coal": addButton.onclick = addCoalPlant; break;
         case "Oil": addButton.onclick = addOilPlant; break;

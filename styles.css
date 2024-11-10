@@ -79,7 +79,7 @@ body {
 .key-item {
     display: flex;
     align-items: center;
-    margin: 5px 0;
+    margin: 5px;
 }
 
 /* Style for the color box */
@@ -89,6 +89,15 @@ body {
     margin-right: 10px;
     border-radius: 4px;
     border: 1px solid #ccc;
+}
+
+.key-label {
+    margin-right: 20px;
+}
+
+.add-button {
+    margin-left: auto;
+    margin-right: 0;
 }
 
 /* Style for the main container to create a split screen */
