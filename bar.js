@@ -8,6 +8,7 @@ function addBar(barGraphID, label, isRenewable, width, color) {
     bar.energyType = label;
     const text = document.createElement("span");
     text.textContent = label + " (" + width + "%)";
+    text.pointer
     if(isRenewable){
       bar.style.borderBottom = "6px solid green";
     } else {

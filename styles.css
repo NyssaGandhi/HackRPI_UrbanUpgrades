@@ -49,6 +49,7 @@ body {
 
 .bar:hover span {
     visibility: visible;
+    pointer-events: none;
 }
 
 /* Style for the info box */
