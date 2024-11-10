@@ -7,17 +7,23 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-  <h1 style="text-align: center; text-decoration: underline;">Emission Mission</h1>
-</header>
+  <header>
+    <h1 style="text-align: center; text-decoration: underline;">Emission Mission</h1>
+  </header>
+
   <!-- Page 1 (Form Page) -->
-  <div id="page1" class="page active">
-    <h2>Enter a zip code:</h2>
-    <form id="myForm">
-      <label for="zip">ZIP:</label>
-      <input type="text" id="zip" name="zip" required><br><br>
-      <button type="submit" onclick="getDataArray(); addBars()">Submit</button>
-    </form>
+  <div id="page1" class="page active" style="justify-content: center; align-items: center;">
+    <div style="text-align: center;">
+      <img src="assets/city_bg.png" alt="Emission Mission Logo" height="300"/>
+    </div>
+    <div>
+      <h2 style="text-align: center;">Enter a zip code to start:</h2>
+      <form id="myForm" style="text-align: center;">
+        <label for="zip">ZIP:</label>
+        <input type="text" id="zip" name="zip" required><br><br>
+        <button type="submit" onclick="getDataArray(); addBars()">Submit</button>
+      </form>
+    </div>
   </div>
 
   <!-- Page 2 (Actual Content) -->

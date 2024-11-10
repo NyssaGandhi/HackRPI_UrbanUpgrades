@@ -16,6 +16,10 @@ body {
     background-color: #d4edda; /* Light green background */
 }
 
+.centered {
+    
+}
+
 /* Container for the entire graph */
 .bar-graph {
     width: 95%; /* Full width */
