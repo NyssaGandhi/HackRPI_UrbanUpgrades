@@ -22,7 +22,7 @@ function showInfo(infoType) {
     // Set content based on the button clicked
     switch (infoType) {
         case 'Coal':
-            infoBox.textContent = "Coal is a non-renewable energy source that is mined and burned. Burning it released CO2 and other pollutants into the atmosphere.";
+            infoBox.textContent = "Coal is a non-renewable energy source that is mined and burned. Burning it releases CO2 and other pollutants into the atmosphere.";
             break;
         case 'Solar':
             infoBox.textContent = "Solar energy is a renewable energy source that is harvested from the sun using solar panels. This technology is often expensive and produces variable energy depending on the day and the weather.";
@@ -37,16 +37,16 @@ function showInfo(infoType) {
             infoBox.textContent = "Nuclear energy is a non-renewable energy source that uses fission, which is a process where radioactive atoms split apart and release energy. This source produces radioactive waste which must be stored safely.";
             break;
         case 'Gas':
-            infoBox.textContent = "Gas is a non-renewable energy source that is collected Another type of fossil fuel commonly used that produces few emissions than coal, oil, etc.";
+            infoBox.textContent = "Gas is a non-renewable energy source that is collected from underground. It is a type of fossil fuel commonly used that produces fewer emissions than coal and oil.";
             break;
         case 'Wind':
-            infoBox.textContent = "Oil is a non-renewable energy source that is collected from underground and burned. Burning it releases CO2 and other pollutants into the atmosphere, though it burns cleaner than other fossil fuels.";
+            infoBox.textContent = "Wind is a renewable energy source produced from giant spinning wind turbines.";
             break;
         case 'Biomass':
             infoBox.textContent = "Biomass is a renewable energy source involving burning biological material like wood or biofuel for energy. Although renewable, this source releases air pollutants similarly to fossil fuels.";
             break;
         case 'Geothermal':
-            infoBox.textContent = "Geothermal energy is a renewable energy source that is collected by using hot water from underground, turning it into steam, and spinning turbines. Geothermal plants require an underground source of water heated by the Earth's heat.";
+            infoBox.textContent = "Geothermal energy is a renewable energy source that is collected by using hot water from underground, turning it into steam, and spinning turbines. Geothermal plants require an underground source of water heated by the Earth.";
             break;
       default:
         infoBox.textContent = "Hover over an energy source to learn more!";

@@ -59,17 +59,16 @@ let rectangles = [
 ];
 let currentRectIndex = null;
 
-  function addPowerPlant(plant) {
-    console.log("Adding plant: " + plant.rect.type)
-    addedSourcename = plant.rect.type;
+function addPowerPlant(plant) {
+  addedSourcename = plant.rect.type;
 
-    for (let i = 0; i < rectangles.length; i++) {
-      if (rectangles[i].type != 'house') {
-        rectangles.splice(i, 1);
-      }
+  for (let i = 0; i < rectangles.length; i++) {
+    if (rectangles[i].type != 'house') {
+      rectangles.splice(i, 1);
     }
-    rectangles.push(plant.rect);
   }
+  rectangles.push(plant.rect);
+}
 
 function addCoalPlant() { addPowerPlant(powerPlants[0]) };
 function addOilPlant() { addPowerPlant(powerPlants[1]) };
