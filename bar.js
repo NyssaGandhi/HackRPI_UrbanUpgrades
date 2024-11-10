@@ -69,15 +69,60 @@ function addKeyEntry(label, color) {
     addButton.className = "add-button";
     addButton.textContent = "Add";
     switch (label) {
-        case "Coal": addButton.onclick = addCoalPlant; break;
-        case "Oil": addButton.onclick = addOilPlant; break;
-        case "Gas": addButton.onclick = addGasPlant; break;
-        case "Nuclear": addButton.onclick = addNuclearPlant; break;
-        case "Biomass": addButton.onclick = addBiomassPlant; break;
-        case "Solar": addButton.onclick = addSolarPlant; break;
-        case "Hydro": addButton.onclick = addHydroPlant; break;
-        case "Wind": addButton.onclick = addWindPlant; break;
-        case "Geothermal": addButton.onclick = addGeoPlant; break;
+      case "Coal": 
+      addButton.onclick = function() { 
+        addCoalPlant(); 
+        addBars(); 
+      }; 
+      break;
+    case "Oil": 
+      addButton.onclick = function() { 
+        addOilPlant(); 
+        addBars(); 
+      }; 
+      break;
+    case "Gas": 
+      addButton.onclick = function() { 
+        addGasPlant(); 
+        addBars(); 
+      }; 
+      break;
+    case "Nuclear": 
+      addButton.onclick = function() { 
+        addNuclearPlant(); 
+        addBars(); 
+      }; 
+      break;
+    case "Biomass": 
+      addButton.onclick = function() { 
+        addBiomassPlant(); 
+        addBars(); 
+      }; 
+      break;
+    case "Solar": 
+      addButton.onclick = function() { 
+        addSolarPlant(); 
+        addBars(); 
+      }; 
+      break;
+    case "Hydro": 
+      addButton.onclick = function() { 
+        addHydroPlant(); 
+        addBars(); 
+      }; 
+      break;
+    case "Wind": 
+      addButton.onclick = function() { 
+        addWindPlant(); 
+        addBars(); 
+      }; 
+      break;
+    case "Geothermal": 
+      addButton.onclick = function() { 
+        addGeoPlant(); 
+        addBars(); 
+      }; 
+      break;
     }
 
     keyItem.appendChild(colorBox);
@@ -87,7 +132,9 @@ function addKeyEntry(label, color) {
 }
 
 //to be parsed somehow
-let sourceNames = ["Coal", "Oil", "Gas", "Nuclear", "Biomass", "Solar", "Hydro", "Wind", "Geothermal"];
+const sourceNames = ["Coal", "Oil", "Gas", "Nuclear", "Biomass", "Solar", "Hydro", "Wind", "Geothermal"];
+const colors = ["#FF8C8C", "#FFB07A", "#F9F38A", "#A8F5A0", "#7EC6D1", "#7A98E5", "#9A92E5", "#FF9BCC", "#FF8C9A"];
+let addedSourcename;
 
 const sources = [];
 
@@ -136,15 +183,64 @@ function addBars(){
   geothermalPercentage = geothermalPercentage.substring(0, (geothermalPercentage.length - 1));
 
 
-  addSource("Coal", false, coalPercentage, 10, "darkorange");
-  addSource("Oil", false, oilPercentage, 5, "red");
-  addSource("Gas", false, gasPercentage, 20, "goldenrod");
-  addSource("Nuclear", false, nuclearPercentage, 12, "purple");
-  addSource("Biomass", true, biomassPercentage, 6, "green");
-  addSource("Solar", true, solarPercentage, 20, "lime");
-  addSource("Hydro", true, hydroPercentage, 15, "blue");
-  addSource("Wind", true, windPercentage, 10, "skyblue");
-  addSource("Geothermal", true, geothermalPercentage, 2, "pink");
+  //Data Indexes: Coal-108, Oil-109, etc
+  //Get production values and ensure they're numbers
+  let coalPro = parseFloat(dataarray[108]) || 0;
+  let oilPro = parseFloat(dataarray[109]) || 0;
+  let gasPro = parseFloat(dataarray[110]) || 0;
+  let nuclearPro = parseFloat(dataarray[111]) || 0;
+  let biomassPro = parseFloat(dataarray[112]) || 0;
+  let solarPro = parseFloat(dataarray[113]) || 0;
+  let hydroPro = parseFloat(dataarray[114]) || 0;
+  let windPro = parseFloat(dataarray[115]) || 0;
+  let geothermalPro = parseFloat(dataarray[116]) || 0;
+
+
+  let offset = 1500000;
+
+  if(addedSourcename != ""){
+    console.log("adding offset")
+    switch(addedSourcename){  
+      case "coal": coalPro += offset; console.log("coaloffseted"); break;
+      case "oil": oilPro += offset; console.log("oiloffseted"); break;
+      case "gas": gasPro += offset; break;
+      case "nuclear": nuclearPro += offset; break;
+      case "biomass": biomassPro += offset; break;
+      case "solar": solarPro += offset; break;
+      case "hydro": hydroPro += offset; break;
+      case "wind": windPro += offset; break;
+      case "geothermal": geothermalPro += offset; break;
+    }
+  }
+
+  let total = coalPro + oilPro + gasPro + nuclearPro + biomassPro + solarPro + hydroPro + windPro + geothermalPro;
+  if (total === 0) {
+    console.error("Total production is zero, cannot calculate estimated percentages.");
+    return; // Exit the function if total is 0 to avoid NaN errors
+  }else{
+    console.log(total);
+    console.log(addedSourcename);
+  }
+
+  let coalEstPerc = coalPro/total * 100;
+  let oilEstPerc = oilPro/total * 100;
+  let gasEstPerc = gasPro/total * 100;
+  let nuclearEstPerc = nuclearPro/total * 100;
+  let biomassEstPerc = biomassPro/total * 100;
+  let solarEstPerc = solarPro/total * 100;
+  let hydroEstPerc = hydroPro/total * 100;
+  let windEstPerc = windPro/total * 100;
+  let geothermalEstPerc = geothermalPro/total * 100;
+  
+  addSource("Coal", false, coalPercentage, coalEstPerc, colors[0]);
+  addSource("Oil", false, oilPercentage, oilEstPerc, colors[1]);
+  addSource("Gas", false, gasPercentage, gasEstPerc, colors[2]);
+  addSource("Nuclear", false, nuclearPercentage, nuclearEstPerc, colors[3]);
+  addSource("Biomass", true, biomassPercentage, biomassEstPerc, colors[4]);
+  addSource("Solar", true, solarPercentage, solarEstPerc, colors[5]);
+  addSource("Hydro", true, hydroPercentage, hydroEstPerc, colors[6]);
+  addSource("Wind", true, windPercentage, windEstPerc, colors[7]);
+  addSource("Geothermal", true, geothermalPercentage, geothermalEstPerc, colors[8]);
 
   addSourceBars();
   addSourcesToKey();
