@@ -19,17 +19,29 @@ hydroImage.src = './assets/hydro.png';
 const bgImage = new Image();
 bgImage.src = './assets/city_bg.png';
 
+const gasImage = new Image();
+gasImage.src = './assets/gas.webp';
+
+const bioImage = new Image();
+bioImage.src = './assets/biomass.png';
+
+const nuclearImage = new Image();
+nuclearImage.src = './assets/nuclear.png';
+
+const windImage = new Image();
+windImage.src = './assets/wind.png'
+
 const mousePosition = { x: 0, y: 0 }
 
 let powerPlants = [
   { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'orange', draggable: true, img: coalImage, type: 'coal' } },
   { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'red', draggable: true, img: null, type: 'oil' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'yellow', draggable: true, img: null, type: 'gas' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'purple', draggable: true, img: null, type: 'nuclear' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'goldenrod', draggable: true, img: null, type: 'biomass' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'yellow', draggable: true, img: gasImage, type: 'gas' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'purple', draggable: true, img: nuclearImage, type: 'nuclear' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'goldenrod', draggable: true, img: bioImage, type: 'biomass' } },
   { cost: 50, rect: { x: 0, y: 0, width: 200, height: 200, color: 'lime', draggable: true, img: solarImage, type: 'solar' } },
   { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'blue', draggable: true, img: hydroImage, type: 'hydro' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 150, height: 150, color: 'skyblue', draggable: true, img: null, type: 'wind' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 150, height: 150, color: 'skyblue', draggable: true, img: windImage, type: 'wind' } },
   { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'pink', draggable: true, img: null, type: 'geo' } },
 ]
 

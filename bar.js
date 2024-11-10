@@ -210,6 +210,7 @@ function addBars(){
       case "hydro": hydroPro += offset; break;
       case "wind": windPro += offset; break;
       case "geo": geothermalPro += offset; break;
+      default: // TODO add no-selection case
     }
   }
 
