@@ -196,7 +196,7 @@ function addBars(){
   let geothermalPro = parseFloat(dataarray[116]) || 0;
 
 
-  let offset = 1500000;
+  let offset = 15000000;
 
   if(addedSourcename != ""){
     console.log("adding offset")
@@ -209,7 +209,7 @@ function addBars(){
       case "solar": solarPro += offset; break;
       case "hydro": hydroPro += offset; break;
       case "wind": windPro += offset; break;
-      case "geothermal": geothermalPro += offset; break;
+      case "geo": geothermalPro += offset; break;
     }
   }
 
@@ -222,15 +222,15 @@ function addBars(){
     console.log(addedSourcename);
   }
 
-  let coalEstPerc = coalPro/total * 100;
-  let oilEstPerc = oilPro/total * 100;
-  let gasEstPerc = gasPro/total * 100;
-  let nuclearEstPerc = nuclearPro/total * 100;
-  let biomassEstPerc = biomassPro/total * 100;
-  let solarEstPerc = solarPro/total * 100;
-  let hydroEstPerc = hydroPro/total * 100;
-  let windEstPerc = windPro/total * 100;
-  let geothermalEstPerc = geothermalPro/total * 100;
+  let coalEstPerc = parseFloat((coalPro / total * 100).toFixed(1));
+  let oilEstPerc = parseFloat((oilPro / total * 100).toFixed(1));
+  let gasEstPerc = parseFloat((gasPro / total * 100).toFixed(1));
+  let nuclearEstPerc = parseFloat((nuclearPro / total * 100).toFixed(1));
+  let biomassEstPerc = parseFloat((biomassPro / total * 100).toFixed(1));
+  let solarEstPerc = parseFloat((solarPro / total * 100).toFixed(1));
+  let hydroEstPerc = parseFloat((hydroPro / total * 100).toFixed(1));
+  let windEstPerc = parseFloat((windPro / total * 100).toFixed(1));
+  let geothermalEstPerc = parseFloat((geothermalPro / total * 100).toFixed(1));  
   
   addSource("Coal", false, coalPercentage, coalEstPerc, colors[0]);
   addSource("Oil", false, oilPercentage, oilEstPerc, colors[1]);
