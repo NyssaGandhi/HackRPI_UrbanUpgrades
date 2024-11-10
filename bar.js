@@ -1,13 +1,18 @@
 // Function to add a new bar to the graph
-function addBar(barGraphID, label, width, color) {
+function addBar(barGraphID, label, isRenewable, width, color) {
     // Create a new bar section
     const bar = document.createElement("div");
-    bar.className = "bar";
+    bar.classList.add("bar");
     bar.style.width = width + "%";
     bar.style.backgroundColor = color;
     bar.energyType = label;
     const text = document.createElement("span");
-    text.textContent = label + " (" + width + "%)";   
+    text.textContent = label + " (" + width + "%)";
+    if(isRenewable){
+      bar.style.borderBottom = "6px solid green";
+    } else {
+      bar.style.borderBottom = "6px solid red";
+    }
     bar.appendChild(text); 
 
     // Append the bar to the graph
@@ -250,8 +255,8 @@ function addBars(){
 
 function addSourceBars() {
     sources.forEach(source => {
-        addBar("currentBarGraph", source.name, source.initialPercent, source.color);
-        addBar("proposedBarGraph", source.name, source.proposedPercent, source.color);
+        addBar("currentBarGraph", source.name, source.isRenewable, source.initialPercent, source.color);
+        addBar("proposedBarGraph", source.name, source.isRenewable, source.proposedPercent, source.color);
     });
 }
 
