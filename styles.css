@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 /* Basic styles to hide pages */
 .page {
     display: none;
@@ -12,9 +18,8 @@ body {
 
 /* Container for the entire graph */
 .bar-graph {
-    width: 100%; /* Full width */
+    width: 95%; /* Full width */
     border: 1px solid #ccc;
-    padding: 20px;
     background-color: #f9f9f9;
     display: flex;
     box-sizing: border-box;
@@ -26,7 +31,7 @@ body {
     margin: 5px 0; /* Space between bars */
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 12px;
     padding-left: 10px;
     box-sizing: border-box;
     cursor: pointer;
@@ -49,16 +54,16 @@ body {
 /* Style for the info box */
 .info-box {
     margin-top: 20px;
-    padding: 15px;
+    padding: 10px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     font-size: 18px;
-    min-height: 50px;
+    min-height: 220px;
 }
 
 .info-label {
     margin-top: 20px;
-    padding: 15px;
+    padding: 10px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     font-size: 30px;

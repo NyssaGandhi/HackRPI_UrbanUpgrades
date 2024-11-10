@@ -16,7 +16,7 @@ function addBar(barGraphID, label, width, color) {
 
 function showInfo(infoType) {
     const infoLabel = document.getElementById("infoLabel");
-    infoLabel.textContent = infoType + " Energy Info";
+    infoLabel.textContent = infoType + " Energy";
 
     const infoBox = document.getElementById("infoBox");
     // Set content based on the button clicked
