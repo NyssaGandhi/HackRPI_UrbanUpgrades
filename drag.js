@@ -29,20 +29,26 @@ const nuclearImage = new Image();
 nuclearImage.src = './assets/nuclear.png';
 
 const windImage = new Image();
-windImage.src = './assets/wind.png'
+windImage.src = './assets/wind.png';
+
+const oilImage = new Image();
+oilImage.src = './assets/oil.png';
+
+const geothermalImage = new Image();
+geothermalImage.src = './assets/geothermal.png';
 
 const mousePosition = { x: 0, y: 0 }
 
 let powerPlants = [
   { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'orange', draggable: true, img: coalImage, type: 'coal' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'red', draggable: true, img: null, type: 'oil' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'red', draggable: true, img: oilImage, type: 'oil' } },
   { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'yellow', draggable: true, img: gasImage, type: 'gas' } },
   { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'purple', draggable: true, img: nuclearImage, type: 'nuclear' } },
   { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'goldenrod', draggable: true, img: bioImage, type: 'biomass' } },
   { cost: 50, rect: { x: 0, y: 0, width: 200, height: 200, color: 'lime', draggable: true, img: solarImage, type: 'solar' } },
   { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'blue', draggable: true, img: hydroImage, type: 'hydro' } },
   { cost: 50, rect: { x: 0, y: 0, width: 150, height: 150, color: 'skyblue', draggable: true, img: windImage, type: 'wind' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'pink', draggable: true, img: null, type: 'geo' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'pink', draggable: true, img: geothermalImage, type: 'geo' } },
 ]
 
 let rectangles = [
