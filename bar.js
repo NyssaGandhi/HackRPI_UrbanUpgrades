@@ -49,7 +49,7 @@ function showInfo(infoType) {
             infoBox.textContent = "Geothermal energy is a renewable energy source that is collected by using hot water from underground, turning it into steam, and spinning turbines. Geothermal plants require an underground source of water heated by the Earth's heat.";
             break;
       default:
-        infoBox.textContent = "Click on an energy source to learn more!";
+        infoBox.textContent = "Hover over an energy source to learn more!";
     }
 }
 
@@ -133,7 +133,7 @@ function addBars(){
   geothermalPercentage = geothermalPercentage.substring(0, (geothermalPercentage.length - 1));
 
 
-  addSource("Coal", false, coalPercentage, 10, "orange");
+  addSource("Coal", false, coalPercentage, 10, "darkorange");
   addSource("Oil", false, oilPercentage, 5, "red");
   addSource("Gas", false, gasPercentage, 20, "goldenrod");
   addSource("Nuclear", false, nuclearPercentage, 12, "purple");
