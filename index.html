@@ -51,10 +51,22 @@
 
     <p>Looking at zipcode: <span id="zipCode"></span></p>
     <button onclick="goBack()">Go Back</button>
+    <button onclick="showEndScreen()">Show Results</button>
   </div>
+
+  <!-- End Screen (initially hidden) -->
+  <div id="endScreen" class="overlay">
+    <div class="popup">
+      <h2>Results</h2>
+      <p id="resultText">Your calculated energy breakdown and potential improvements.</p>
+      <button onclick="hideEndScreen()">Close</button>
+    </div>
+  </div>
+
   <script src="excel.js"></script>
   <script src="pages.js"></script>
   <script src="bar.js"></script>
   <script src="drag.js"></script>
+  <script src="result.js"></script>
 </body>
 </html>
