@@ -16,7 +16,7 @@ function addBar(barGraphID, label, width, color) {
 
 function showInfo(infoType) {
     const infoLabel = document.getElementById("infoLabel");
-    infoLabel.textContent = "Some info about " + infoType + " energy";
+    infoLabel.textContent = infoType + " Energy Info";
 
     const infoBox = document.getElementById("infoBox");
     // Set content based on the button clicked
@@ -153,7 +153,7 @@ function addClickFunctionality() {
     
     // Add the click event listener to each element
     bars.forEach(bar => {
-      bar.addEventListener('click', function() {
+      bar.addEventListener('mouseover', function() {
         // Your code to execute on click
         showInfo(bar.energyType);
       });
