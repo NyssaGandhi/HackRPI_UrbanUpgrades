@@ -59,13 +59,27 @@ function addKeyEntry(label, color) {
 
     const colorBox = document.createElement("div");
     colorBox.className = "color-box";
-
     colorBox.style = `background-color: ${color}`;
+
     const labelBox = document.createElement("span");
     labelBox.textContent = label;
 
+    const addButton = document.createElement("button");
+    switch (label) {
+        case "Coal": addButton.onclick = addCoalPlant; break;
+        case "Oil": addButton.onclick = addOilPlant; break;
+        case "Gas": addButton.onclick = addGasPlant; break;
+        case "Nuclear": addButton.onclick = addNuclearPlant; break;
+        case "Biomass": addButton.onclick = addBiomassPlant; break;
+        case "Solar": addButton.onclick = addSolarPlant; break;
+        case "Hydro": addButton.onclick = addHydroPlant; break;
+        case "Wind": addButton.onclick = addWindPlant; break;
+        case "Geothermal": addButton.onclick = addGeoPlant; break;
+    }
+
     keyItem.appendChild(colorBox);
-    keyItem.appendChild(labelBox)
+    keyItem.appendChild(labelBox);
+    keyItem.appendChild(addButton);
     document.getElementById("colorKey").appendChild(keyItem);
 }
 
