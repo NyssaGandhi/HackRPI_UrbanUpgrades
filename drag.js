@@ -4,22 +4,30 @@ const ctx = canvas.getContext('2d');
 let isDragging = false;
 let dragStartX, dragStartY;
 
-const houseImage = new Image(50, 50);
+const houseImage = new Image();
 houseImage.src = './assets/house.png';
-//houseImage.onload = draw;
+
+const solarImage = new Image();
+solarImage.src = './assets/solarpanel.png';
+
+const coalImage = new Image();
+coalImage.src = './assets/coal.png';
+
+const hydroImage = new Image();
+hydroImage.src = './assets/hydro.png';
 
 const mousePosition = { x: 0, y: 0 }
 
 let powerPlants = [
-  { cost: 50, rect: { x: 0, y: 0, width: 50, height: 50, color: 'orange', draggable: true, img: null, type: 'coal' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 50, height: 50, color: 'red', draggable: true, img: null, type: 'oil' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 50, height: 50, color: 'yellow', draggable: true, img: null, type: 'gas' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 50, height: 50, color: 'purple', draggable: true, img: null, type: 'nuclear' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 50, height: 50, color: 'goldenrod', draggable: true, img: null, type: 'biomass' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 150, height: 150, color: 'lime', draggable: true, img: null, type: 'solar' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 50, height: 50, color: 'blue', draggable: true, img: null, type: 'hydro' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'orange', draggable: true, img: coalImage, type: 'coal' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'red', draggable: true, img: null, type: 'oil' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'yellow', draggable: true, img: null, type: 'gas' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'purple', draggable: true, img: null, type: 'nuclear' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'goldenrod', draggable: true, img: null, type: 'biomass' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 200, height: 200, color: 'lime', draggable: true, img: solarImage, type: 'solar' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'blue', draggable: true, img: hydroImage, type: 'hydro' } },
   { cost: 50, rect: { x: 0, y: 0, width: 150, height: 150, color: 'skyblue', draggable: true, img: null, type: 'wind' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 50, height: 50, color: 'pink', draggable: true, img: null, type: 'geo' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 100, height: 100, color: 'pink', draggable: true, img: null, type: 'geo' } },
 ]
 
 let rectangles = [
@@ -129,7 +137,7 @@ function draw() {
     if (rect.img) {
       ctx.fillStyle = rect.color;
       ctx.strokeRect(rect.x, rect.y, rect.width, rect.height);
-      ctx.drawImage(rect.img, rect.x, rect.y, 50, 50);
+      ctx.drawImage(rect.img, rect.x, rect.y, rect.width, rect.height);
       // ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
       // ctx.drawImage(rect.img, 0, 0);
     } else { // Fill color
