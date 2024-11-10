@@ -27,9 +27,12 @@
             <canvas id="greenCanvas" width="800" height="500" style="border:3px solid #000000; background-color: green;"></canvas>
         </div>
         <!-- Energy sources identified by color here -->
-         <div>
+        <div>
             <div class="color-key" id="colorKey"></div>
-         </div>
+            <p>Looking at zipcode: <span id="zipCode"></span></p>
+            <button onclick="goBack()">Go Back</button>
+            <button onclick="showEndScreen()">Show Results</button>
+        </div>
     </div>
 
     <div class="split-screen">
@@ -52,10 +55,6 @@
             <div class="info-box" id="infoBox">Hover over an energy source to learn more!</div>
         </div>
     </div>
-
-    <p>Looking at zipcode: <span id="zipCode"></span></p>
-    <button onclick="goBack()">Go Back</button>
-    <button onclick="showEndScreen()">Show Results</button>
   </div>
 
   <!-- End Screen (initially hidden) -->
