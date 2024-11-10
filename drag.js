@@ -37,6 +37,7 @@ let rectangles = [
   { x: 150, y: 400, width: 50, height: 50, color: 'black', draggable: false, img: houseImage, type: 'house' },
   { x: 400, y: 250, width: 50, height: 50, color: 'black', draggable: false, img: houseImage, type: 'house' },
   { x: 700, y: 0, width: 50, height: 50, color: 'black', draggable: false, img: houseImage, type: 'house' },
+  { x: 750, y: 350, width: 50, height: 50, color: 'black', draggable: false, img: houseImage, type: 'house' },
 ];
 let currentRectIndex = null;
 
