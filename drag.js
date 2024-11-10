@@ -16,9 +16,9 @@ let powerPlants = [
   { cost: 50, rect: { x: 0, y: 0, width: 50, height: 50, color: 'yellow', draggable: true, img: null, type: 'gas' } },
   { cost: 50, rect: { x: 0, y: 0, width: 50, height: 50, color: 'purple', draggable: true, img: null, type: 'nuclear' } },
   { cost: 50, rect: { x: 0, y: 0, width: 50, height: 50, color: 'goldenrod', draggable: true, img: null, type: 'biomass' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 50, height: 50, color: 'lime', draggable: true, img: null, type: 'solar' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 150, height: 150, color: 'lime', draggable: true, img: null, type: 'solar' } },
   { cost: 50, rect: { x: 0, y: 0, width: 50, height: 50, color: 'blue', draggable: true, img: null, type: 'hydro' } },
-  { cost: 50, rect: { x: 0, y: 0, width: 50, height: 50, color: 'skyblue', draggable: true, img: null, type: 'wind' } },
+  { cost: 50, rect: { x: 0, y: 0, width: 150, height: 150, color: 'skyblue', draggable: true, img: null, type: 'wind' } },
   { cost: 50, rect: { x: 0, y: 0, width: 50, height: 50, color: 'pink', draggable: true, img: null, type: 'geo' } },
 ]
 
