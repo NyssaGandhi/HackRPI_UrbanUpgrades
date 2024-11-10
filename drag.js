@@ -16,6 +16,9 @@ coalImage.src = './assets/coal.png';
 const hydroImage = new Image();
 hydroImage.src = './assets/hydro.png';
 
+const bgImage = new Image();
+bgImage.src = './assets/city_bg.png';
+
 const mousePosition = { x: 0, y: 0 }
 
 let powerPlants = [
@@ -31,10 +34,8 @@ let powerPlants = [
 ]
 
 let rectangles = [
-  { x: 300, y: 300, width: 50, height: 50, color: 'black', draggable: false, img: houseImage, type: 'house' },
-  { x: 500, y: 400, width: 50, height: 50, color: 'black', draggable: false, img: houseImage, type: 'house' },
-  { x: 100, y: 250, width: 50, height: 50, color: 'black', draggable: false, img: houseImage, type: 'house' },
-  { x: 600, y: 200, width: 50, height: 50, color: 'black', draggable: false, img: houseImage, type: 'house' },
+  { x: 150, y: 400, width: 50, height: 50, color: 'black', draggable: false, img: houseImage, type: 'house' },
+  { x: 400, y: 250, width: 50, height: 50, color: 'black', draggable: false, img: houseImage, type: 'house' },
 ];
 let currentRectIndex = null;
 
@@ -123,6 +124,9 @@ canvas.addEventListener('mouseout', () => {
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw the city background
+  ctx.drawImage(bgImage, 0, 0, 800, 500);
 
   // Set the properties for the square
   const x = (mousePosition.x) - (mousePosition.x) % 50;
