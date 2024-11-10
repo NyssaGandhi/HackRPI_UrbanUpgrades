@@ -4,8 +4,6 @@ const ctx = canvas.getContext('2d');
 let isDragging = false;
 let dragStartX, dragStartY;
 
-let cost = 0; // millions of dollars
-
 const houseImage = new Image(50, 50);
 houseImage.src = './assets/house.png';
 //houseImage.onload = draw;
@@ -34,7 +32,11 @@ let currentRectIndex = null;
 
 function addPowerPlant(plant) {
   console.log("Adding plant: " + plant.rect.type)
-  cost += plant.cost;
+  for (let i = 0; i < rectangles.length; i++) {
+    if (rectangles[i].type != 'house') {
+      rectangles.splice(i, 1);
+    }
+  }
   rectangles.push(plant.rect);
 }
 
